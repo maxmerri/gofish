@@ -236,12 +236,11 @@ int main() {
                     bot1Cards.emplace_back(deck[deck.size() - 1]);
                     deck.pop_back();
                 } else {
-                    int target = chooseRandomTargetForBot(); // 0 => player, 1 => bot2
+                    //Decides if it goes for the bot or the player
+                    int target = chooseRandomTargetForBot();
                     int askRank = chooseRandomRankFromHand(bot1Cards);
-                    if (askRank == -1) {
-                        // no card to ask for
-                    } else if (target == 0) {
-                        cout << "Bot1 asks you: Do you have any " << (askRank==1?"Ace": to_string(askRank)) << "s?\n";
+                    if (target == 0) {
+                        cout << "Bot1 asks you: Do you have any " << to_string(askRank) << "s?\n";
                         if (handContains(playerCards, askRank)) {
                             transferCards(playerCards, bot1Cards, askRank, "You", "Bot1");
                         } else {
@@ -250,7 +249,7 @@ int main() {
                             deck.pop_back();
                         }
                     } else { // ask bot2
-                        cout << "Bot1 asks Bot2: Do you have any " << (askRank==1?"Ace": to_string(askRank)) << "s?\n";
+                        cout << "Bot1 asks Bot2: Do you have any " << to_string(askRank) << "s?\n";
                         if (handContains(bot2Cards, askRank)) {
                             transferCards(bot2Cards, bot1Cards, askRank, "Bot2", "Bot1");
                         } else {
@@ -279,12 +278,11 @@ int main() {
                     bot2Cards.emplace_back(deck[deck.size() - 1]);
                     deck.pop_back();
                 } else {
-                    int target = chooseRandomTargetForBot(); // 0 => player, 1 => other bot (bot1)
+                    //Decides if it goes for the bot or the player
+                    int target = chooseRandomTargetForBot();
                     int askRank = chooseRandomRankFromHand(bot2Cards);
-                    if (askRank == -1) {
-                        // no card to ask for
-                    } else if (target == 0) {
-                        cout << "Bot2 asks you: Do you have any " << (askRank==1?"Ace": to_string(askRank)) << "s?\n";
+                    if (target == 0) {
+                        cout << "Bot2 asks you: Do you have any " << to_string(askRank) << "s?\n";
                         if (handContains(playerCards, askRank)) {
                             transferCards(playerCards, bot2Cards, askRank, "You", "Bot2");
                         } else {
@@ -293,7 +291,7 @@ int main() {
                             deck.pop_back();
                         }
                     } else { // ask bot1
-                        cout << "Bot2 asks Bot1: Do you have any " << (askRank==1?"Ace": to_string(askRank)) << "s?\n";
+                        cout << "Bot2 asks Bot1: Do you have any " << to_string(askRank) << "s?\n";
                         if (handContains(bot1Cards, askRank)) {
                             transferCards(bot1Cards, bot2Cards, askRank, "Bot1", "Bot2");
                         } else {
