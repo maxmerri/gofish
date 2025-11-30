@@ -11,7 +11,6 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
     int BobCards = 0;
     BobCards = Bob.size();
 
-
     //border frame -  stars in corners, pluses as borders
     cout << "* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *\n" << endl;
     //card groups
