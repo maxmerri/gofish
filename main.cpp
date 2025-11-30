@@ -4,60 +4,13 @@
 #include <algorithm>
 #include <random>
 #include <chrono>
+#include ".\display.cpp"
 using namespace std;
 
 //to do
 //-----------implement function that removes book from hand and adds 1 to score
 //implement bot
 //implement game ended state and winner print out
-
-class Card {
-public:
-    int value;
-    int suit;
-    Card(int x, int y) {
-        value = x;
-        suit = y;
-    }
-
-    bool operator<(const Card& other) const {
-        return value < other.value;
-    }
-
-    //gives you the name of the card
-    string name() {
-        string name;
-        if (value == 1) {
-            name = "Ace";
-        }else if (value > 1 && value < 11) {
-            name = to_string(value);
-        }else if (value == 11) {
-            name = "Jack";
-        }else if (value == 12) {
-            name = "Queen";
-        }else if (value == 13) {
-            name = "King";
-        }
-
-        name += " of ";
-
-        switch (suit) {
-            case 1:
-                name += "Clubs";
-                break;
-            case 2:
-                name += "Diamonds";
-                break;
-            case 3:
-                name += "Hearts";
-                break;
-            case 4:
-                name += "Spades";
-                break;
-        }
-        return name;
-    }
-};
 
 
 vector<Card> shuffleDeck() {
@@ -197,7 +150,7 @@ int main() {
 
         //Player game loop
         while (true) {
-            showHand(playerCards);
+            display(playerCards, bot1Cards, bot2Cards);
             //Choose which bot
             int botChoice;
             while (true) {

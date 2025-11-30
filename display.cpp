@@ -2,6 +2,55 @@
 #include <vector>
 using namespace std;
 
+class Card {
+public:
+    int value;
+    int suit;
+    Card(int x, int y) {
+        value = x;
+        suit = y;
+    }
+
+    bool operator<(const Card& other) const {
+        return value < other.value;
+    }
+
+    //gives you the name of the card
+    string name() {
+        string name;
+        if (value == 1) {
+            name = "Ace";
+        }else if (value > 1 && value < 11) {
+            name = to_string(value);
+        }else if (value == 11) {
+            name = "Jack";
+        }else if (value == 12) {
+            name = "Queen";
+        }else if (value == 13) {
+            name = "King";
+        }
+
+        name += " of ";
+
+        switch (suit) {
+            case 1:
+                name += "Clubs";
+                break;
+            case 2:
+                name += "Diamonds";
+                break;
+            case 3:
+                name += "Hearts";
+                break;
+            case 4:
+                name += "Spades";
+                break;
+        }
+        return name;
+    }
+};
+
+
 //card display - show player their cards, and number of cards for Chuck and Bob
 void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
     int playerCards = 0;
