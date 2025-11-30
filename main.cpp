@@ -8,9 +8,8 @@
 using namespace std;
 
 //to do
-//-----------implement function that removes book from hand and adds 1 to score
-//implement bot
-//implement game ended state and winner print out
+//fix input breaking when entering words
+//file
 
 
 vector<Card> shuffleDeck() {
@@ -171,8 +170,8 @@ int main() {
         bool playerLoop = true;
         while (playerLoop) {
             cout << "-----------------------------------------\nYour Turn \n-----------------------------------------\n";
-            //display(playerCards, bot1Cards, bot2Cards);
-            showHand(playerCards);
+            display(playerCards, bot1Cards, bot2Cards);
+            //showHand(playerCards);
             //Choose which bot
             int botChoice;
             while (true) {
@@ -268,6 +267,8 @@ int main() {
                 bot1Score++;
                 cout << "Bot 1: four of a kind\n";
             }
+
+
 
 
             cout << "-----------------------------------------\nBot Two's Turn \n-----------------------------------------\n";

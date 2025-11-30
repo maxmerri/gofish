@@ -82,13 +82,13 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
 
     //border frame -  stars in corners, minuses as borders
     cout << "* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *\n" << endl;
-    //card groups
+    /*
     cout << " + - - - + - + - + - + - + - + - + - + - + --- + - + - + - +" << endl;
     cout << " |     A | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |  10 | J | Q | K |" << endl;
     cout << " |     / | / | / | / | / | / | / | / | / |   / | / | / | / |" << endl; // replace "/" with initial of completed set "P"/"C"/"B"
     cout << " |       |   |   |   |   |   |   |   |   |     |   |   |   |" << endl;
     cout << " + - - - + - + - + - + - + - + - + - + - + --- + - + - + - +\n\n" << endl;
-
+    */
         //Chuck
         cout << " Chuck has " << Chuck.size() << " cards." << endl;
             //top section
