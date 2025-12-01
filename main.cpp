@@ -5,7 +5,7 @@
 #include <random>
 #include <chrono>
 #include ".\display.cpp"
-#include ".\file.cpp"
+#include ".\wincounter.cpp"
 using namespace std;
 
 vector<Card> shuffleDeck() {
@@ -165,6 +165,8 @@ int main() {
             deck.pop_back();
         }
         bool playerLoop = true;
+
+        cout << "You have " << nwc() << " wins.";
 
         while (playerLoop) {
             cout << "-----------------------------------------\nYour Turn \n-----------------------------------------\n";
@@ -328,6 +330,7 @@ int main() {
                 cout << "All cards exhausted. Round over.\n";
                 if (playerScore > bot1Score && playerScore > bot2Score) {
                     cout << "YOU WIN!!!! [:";
+                    wc();
                 }else {
                     cout << "YOU LOST!!! ]:";
                 }

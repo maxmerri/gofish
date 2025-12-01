@@ -87,7 +87,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
 
         //Chuck
         cout << " Chuck (1) has " << Chuck.size() << " cards." << endl;
-    if (!Chuck.empty()) {
+    if (Chuck.empty()) {
         cout << "\n" << endl;
     }
     else {
@@ -117,7 +117,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
 
         //Bob
         cout << " Bob (2) has " << Bob.size() << " cards." << endl;
-    if (!Bob.empty()) {
+    if (Bob.empty()) {
         cout << "\n" << endl;
     }
     else {
@@ -147,7 +147,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
 
         //Player
             cout << " You have " << player.size() << " cards." << endl;
-    if (!player.empty()) {
+    if (player.empty()) {
         cout << "\n" << endl;
     }
     else {
