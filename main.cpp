@@ -168,25 +168,31 @@ int main() {
             bot2Cards.emplace_back(deck[deck.size() - 1]);
             deck.pop_back();
         }
-
-        //Player game loop
         bool playerLoop = true;
-        bool cardInputLoop = true;
+
         while (playerLoop) {
             cout << "-----------------------------------------\nYour Turn \n-----------------------------------------\n";
             display(playerCards, bot1Cards, bot2Cards);
             //showHand(playerCards);
             //Choose which bot
-            int botChoice;
-            while (true) {
+            bool cardInputLoop;
+            bool playerInputLoop;
+
+            //Player game loop
+            if (!playerCards.empty()) {
+                cardInputLoop = true;
+                playerInputLoop = true;
+            }
+            int botChoice = 0;
+            while (playerInputLoop) {
                 cout << "Choose which player to ask from. (1 or 2) (3 to quit)\n";
                 cin >> botChoice;
                 if (botChoice == 1 or botChoice == 2) {
-                    break;
+                    playerLoop = false;
                 }else if (botChoice == 3) {// use to quit early
                     playerLoop = false;
                     cardInputLoop = false;
-                    break;
+                    playerInputLoop = false;
                 }
                 cout << "Invalid choice, please try again\n";
                 std::cin.clear();
@@ -218,7 +224,8 @@ int main() {
                 //bot2 card interactions
             }else if (botChoice == 2 && handContains(bot2Cards, cardChoice)) {
                 askCards(bot2Cards, playerCards, cardChoice);
-            }else {
+            }else if (cardChoice == 0) {
+            }else{
                 cout << "Bot " << botChoice << " says: Go Fish\n";
                 if (!deck.empty()) {
                     cout << "You got: " << deck[deck.size() - 1].name() << endl;
