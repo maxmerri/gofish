@@ -8,10 +8,6 @@
 #include ".\file.cpp"
 using namespace std;
 
-//to do
-//file
-//
-
 vector<Card> shuffleDeck() {
     //makes the deck vector
     vector<Card> deck;
