@@ -84,71 +84,79 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
 
     //border frame -  stars in corners, minuses as borders
     cout << "* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *\n" << endl;
-    /*
-    cout << " + - - - + - + - + - + - + - + - + - + - + --- + - + - + - +" << endl;
-    cout << " |     A | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |  10 | J | Q | K |" << endl;
-    cout << " |     / | / | / | / | / | / | / | / | / |   / | / | / | / |" << endl; // replace "/" with initial of completed set "P"/"C"/"B"
-    cout << " |       |   |   |   |   |   |   |   |   |     |   |   |   |" << endl;
-    cout << " + - - - + - + - + - + - + - + - + - + - + --- + - + - + - +\n\n" << endl;
-    */
+
         //Chuck
         cout << " Chuck (1) has " << Chuck.size() << " cards." << endl;
-            //top section
-            cout << " + - - - +";
+    if (!Chuck.empty()) {
+        cout << "\n" << endl;
+    }
+    else {
+        //top section
+        cout << " + - - - +";
+        for (int i = 0; i <= Chuck.size()-2; i++) {
+            cout << " - +";
+        }
+        cout << endl;
+
+        //midsection
+        for (int l = 0; l <= 2; l++) {
+            cout << " |       |";
             for (int i = 0; i <= Chuck.size()-2; i++) {
-                cout << " - +";
-            }
-            cout << endl;
-
-            //midsection
-            for (int l = 0; l <= 2; l++) {
-                cout << " |       |";
-                for (int i = 0; i <= Chuck.size()-2; i++) {
-                    cout << "   |";
-                }
-                cout << endl;
-            }
-
-            //low section
-            cout << " + - - - +";
-            for (int i = 0; i <= Chuck.size()-2; i++) {
-                cout << " - +";
-            }
-            cout << "\n" << endl;
-
-        //Bob
-        cout << " Bob (2) has " << Bob.size() << " cards." << endl;
-            //top section
-            cout << " + - - - +";
-            for (int i = 0; i <= Bob.size()-2; i++) {
-                cout << " - +";
-            }
-            cout << endl;
-
-            //midsection
-            for (int l = 0; l <= 2; l++) {
-                cout << " |       |";
-                for (int i = 0; i <= Bob.size()-2; i++) {
                 cout << "   |";
             }
             cout << endl;
-            }
+        }
 
-            //low section
-            cout << " + - - - +";
+        //low section
+        cout << " + - - - +";
+        for (int i = 0; i <= Chuck.size()-2; i++) {
+            cout << " - +";
+        }
+        cout << "\n" << endl;
+    }
+
+        //Bob
+        cout << " Bob (2) has " << Bob.size() << " cards." << endl;
+    if (!Bob.empty()) {
+        cout << "\n" << endl;
+    }
+    else {
+        //top section
+        cout << " + - - - +";
+        for (int i = 0; i <= Bob.size()-2; i++) {
+            cout << " - +";
+        }
+        cout << endl;
+
+        //midsection
+        for (int l = 0; l <= 2; l++) {
+            cout << " |       |";
             for (int i = 0; i <= Bob.size()-2; i++) {
-                cout << " - +";
+                cout << "   |";
             }
-            cout << "\n" << endl;
+            cout << endl;
+        }
+
+        //low section
+        cout << " + - - - +";
+        for (int i = 0; i <= Bob.size()-2; i++) {
+            cout << " - +";
+        }
+        cout << "\n" << endl;
+    }
 
         //Player
             cout << " You have " << player.size() << " cards." << endl;
-            //top section
-            cout << " + - - - +";
-            for (int i = 0; i <= player.size()-2; i++) {
-                cout << " - +";
-            }
-            cout << endl;
+    if (!player.empty()) {
+        cout << "\n" << endl;
+    }
+    else {
+        //top section
+        cout << " + - - - +";
+        for (int i = 0; i <= player.size()-2; i++) {
+            cout << " - +";
+        }
+        cout << endl;
 
         //upper midsection
         cout << " |    " << setw(2) << left << nameCon(player[0].value) << " |";
@@ -173,14 +181,6 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
             cout << " - +";
         }
         cout << "\n" << endl;
+    }
     cout << "* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *" << endl;
 }
-
-    //check goFish part - if i ask chuck for ace checks if he has ace.
-    /*for (int j = 0; j < playerCards; j++) {
-        for (int k = 0; k < ChuckCards; k++) {
-            if (player[j] == Chuck[k]) {
-                cout << "*";
-            }
-        }
-    }*/
