@@ -5,12 +5,12 @@
 #include <random>
 #include <chrono>
 #include ".\display.cpp"
+#include ".\file.cpp"
 using namespace std;
 
 //to do
-//fix input breaking when entering words
 //file
-
+//
 
 vector<Card> shuffleDeck() {
     //makes the deck vector
@@ -42,6 +42,7 @@ bool handContains(vector<Card> hand, int card) {
     return false;
 }
 
+//removes a set of four
 void removeBook(vector<Card> &hand) {
     int bookNumber = 0;
     for (int i = 0; i < 13; i++) {
@@ -183,6 +184,8 @@ int main() {
                     playerLoop = false;
                 }
                 cout << "Invalid choice, please try again\n";
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
             }
 
             //Choose which card
@@ -192,17 +195,18 @@ int main() {
                 cout << "Choose which card to ask for. (1 for ace, 13 for king)\n";
                 cin >> cardChoice;
                 if (handContains(playerCards, cardChoice)) {
-                    for (int i = 1; i < 13; i++) {
-                        if (cardChoice == i) {
-                            cardInputLoop = false;
-                        }
+                    if (cardChoice > 0 && cardChoice < 14) {
+                        cardInputLoop = false;
                     }
                 }else {
                     cout << "Invalid choice, please try again\n";
                 }
+                std::cin.clear();
+                std::cin.ignore(10000, '\n');
             }
 
             //cout << "Debug: cardchoice: " << cardChoice << " bot choice: " << botChoice << endl;
+            cout << "-----------------------------------------" << endl;
 
             //bot1 card interaction
             if (botChoice == 1 && handContains(bot1Cards, cardChoice)) {

@@ -3,6 +3,8 @@
 #include <iomanip>
 using namespace std;
 
+//this class is kind of a leftover from when it was a poker game.
+//I'd just use an int since the suit doesn't matter or show in this game but in the intrest of reusing code this was simpler.
 class Card {
 public:
     int value;
@@ -90,7 +92,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
     cout << " + - - - + - + - + - + - + - + - + - + - + --- + - + - + - +\n\n" << endl;
     */
         //Chuck
-        cout << " Chuck has " << Chuck.size() << " cards." << endl;
+        cout << " Chuck (1) has " << Chuck.size() << " cards." << endl;
             //top section
             cout << " + - - - +";
             for (int i = 0; i <= Chuck.size()-2; i++) {
@@ -115,7 +117,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
             cout << "\n" << endl;
 
         //Bob
-        cout << " Bob has " << Bob.size() << " cards." << endl;
+        cout << " Bob (2) has " << Bob.size() << " cards." << endl;
             //top section
             cout << " + - - - +";
             for (int i = 0; i <= Bob.size()-2; i++) {
