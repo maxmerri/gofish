@@ -31,7 +31,7 @@ vector<Card> shuffleDeck() {
     return deck;
 }
 
-
+//checks if a hand contains a
 bool handContains(vector<Card> hand, int card) {
     for (int i = 0; i < hand.size(); i++) {
         //cout << "hand i value " << hand[i].value << " card " << card << endl;
@@ -95,6 +95,7 @@ bool hasBook(vector<Card> hand) {
     return false;
 }
 
+//Used for development while display.cpp was being made
 void showHand(vector<Card> &hand) {
     cout << "Your hand: ";
     for (int i = 0; i < hand.size(); i++) {
@@ -127,6 +128,7 @@ void transferCards(vector<Card> &loser, vector<Card> &receiver, int card, const 
     }
 }
 
+// returns 0 or 1
 int chooseRandomTargetForBot() {
     uniform_int_distribution<int> dist(0,1);
     return dist(rng);
@@ -169,6 +171,7 @@ int main() {
 
         //Player game loop
         bool playerLoop = true;
+        bool cardInputLoop = true;
         while (playerLoop) {
             cout << "-----------------------------------------\nYour Turn \n-----------------------------------------\n";
             display(playerCards, bot1Cards, bot2Cards);
@@ -176,12 +179,14 @@ int main() {
             //Choose which bot
             int botChoice;
             while (true) {
-                cout << "Choose which player to ask from. (1 or 2)\n";
+                cout << "Choose which player to ask from. (1 or 2) (3 to quit)\n";
                 cin >> botChoice;
                 if (botChoice == 1 or botChoice == 2) {
                     break;
-                }else if (botChoice == 42) {// use to quit early
+                }else if (botChoice == 3) {// use to quit early
                     playerLoop = false;
+                    cardInputLoop = false;
+                    break;
                 }
                 cout << "Invalid choice, please try again\n";
                 std::cin.clear();
@@ -190,7 +195,6 @@ int main() {
 
             //Choose which card
             int cardChoice;
-            bool cardInputLoop = true;
             while (cardInputLoop) {
                 cout << "Choose which card to ask for. (1 for ace, 13 for king)\n";
                 cin >> cardChoice;
@@ -322,7 +326,7 @@ int main() {
                 if (playerScore > bot1Score && playerScore > bot2Score) {
                     cout << "YOU WIN!!!! [:";
                 }else {
-                    cout << "NO WIN!!!! [:";
+                    cout << "YOU LOST!!! ]:";
                 }
                 playerLoop = false;
             }
