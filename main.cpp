@@ -165,8 +165,11 @@ int main() {
             deck.pop_back();
         }
         bool playerLoop = true;
-
-        cout << "You have " << nwc() << " wins.";
+        if (nwc() == -1) {
+            wc();
+        }
+        cout << "-----------------------------------------\n";
+        cout << "You have " << nwc() << " wins. (saved to a file)\n" << "NEW GAME\n";
 
         while (playerLoop) {
             cout << "-----------------------------------------\nYour Turn \n-----------------------------------------\n";

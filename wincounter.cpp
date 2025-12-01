@@ -11,7 +11,7 @@ void wc() { // wc = win counter
     w++; // adding one to the counter when someone wins
     outFile << w; // using outFile to write data to the new file
     outFile.close(); // closes the file after it is done running the code*/
-    int w = 0;
+    int w = -1;
     ifstream inFile(".//WinCounter.txt");
     if (inFile) {
         inFile >> w;
@@ -35,6 +35,5 @@ int nwc() { // outputs the number from the file
         inFile >> wins;
         inFile.close();
     }
-    cout << "Number of wins: " << wins << endl;
     return wins;
 }
