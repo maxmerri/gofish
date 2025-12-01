@@ -212,7 +212,7 @@ int main() {
             if (botChoice == 1 && handContains(bot1Cards, cardChoice)) {
                 askCards(bot1Cards, playerCards, cardChoice);
                 //bot2 card interactions
-            }else if (botChoice == 2 && handContains(bot1Cards, cardChoice)) {
+            }else if (botChoice == 2 && handContains(bot2Cards, cardChoice)) {
                 askCards(bot2Cards, playerCards, cardChoice);
             }else {
                 cout << "Bot " << botChoice << " says: Go Fish\n";
