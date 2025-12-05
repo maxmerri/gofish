@@ -101,10 +101,15 @@ void showHand(vector<Card> &hand) {
 }
 
 //used for random number
+random_device rd;
 mt19937 rng((unsigned)chrono::high_resolution_clock::now().time_since_epoch().count());
 //returns a random rank from the hand
 //taken from copilot
 int chooseRandomRankFromHand(vector<Card>& hand) {
+    /*
+    mt19937 rng(rd());
+    rng.seed(0);
+    */
     uniform_int_distribution<int> dist(0, (int)hand.size() - 1);
     return hand[dist(rng)].value;
 }
@@ -126,6 +131,10 @@ void transferCards(vector<Card> &loser, vector<Card> &receiver, int card, const 
 
 // returns 0 or 1
 int chooseRandomTargetForBot() {
+    /*
+    mt19937 rng(rd());
+    rng.seed(0);
+    */
     uniform_int_distribution<int> dist(0,1);
     return dist(rng);
 }
@@ -189,7 +198,8 @@ int main() {
                 cout << "Choose which player to ask from. (1 or 2) (3 to quit)\n";
                 cin >> botChoice;
                 if (botChoice == 1 or botChoice == 2) {
-                    playerLoop = false;
+                    playerInputLoop = false;
+                    break;
                 }else if (botChoice == 3) {// use to quit early
                     playerLoop = false;
                     cardInputLoop = false;
@@ -283,8 +293,6 @@ int main() {
                 bot1Score++;
                 cout << "Bot 1: four of a kind\n";
             }
-
-
 
 
             cout << "-----------------------------------------\nBot Two's Turn \n-----------------------------------------\n";

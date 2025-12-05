@@ -14,10 +14,6 @@ public:
         suit = y;
     }
 
-    bool operator<(const Card& other) const {
-        return value < other.value;
-    }
-
     //gives you the name of the card
     string name() {
         string name;
@@ -51,6 +47,7 @@ public:
         }
         return name;
     }
+
 };
 
 //nameCon - name conversion (11=J,12=Q,13=K)
@@ -86,7 +83,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
     cout << "* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - *\n" << endl;
 
         //Chuck
-        cout << " Chuck (1) has " << Chuck.size() << " cards." << endl;
+        cout << " Bot (1) has " << Chuck.size() << " cards." << endl;
     if (Chuck.empty()) {
         cout << "\n" << endl;
     }
@@ -116,7 +113,7 @@ void display(vector<Card> player, vector<Card> Chuck, vector<Card> Bob) {
     }
 
         //Bob
-        cout << " Bob (2) has " << Bob.size() << " cards." << endl;
+        cout << " Bot (2) has " << Bob.size() << " cards." << endl;
     if (Bob.empty()) {
         cout << "\n" << endl;
     }
