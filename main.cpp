@@ -181,6 +181,7 @@ int main() {
         cout << "You have " << nwc() << " wins. (saved to a file)\n" << "NEW GAME\n";
 
         while (playerLoop) {
+            cout << "Player books: " << playerScore << " Bot1 books: " << bot1Score << " Bot2 books: " << bot2Score << endl;
             cout << "-----------------------------------------\nYour Turn \n-----------------------------------------\n";
             display(playerCards, bot1Cards, bot2Cards);
             //showHand(playerCards);

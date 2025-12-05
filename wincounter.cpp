@@ -2,7 +2,6 @@
 #include <fstream>
 using namespace std;
 
-
 // adding one to the win counter when they win
 void wc() { // wc = win counter
     /*ofstream outFile; // instantiated an ofstream object - outFile works like the cout object
@@ -23,7 +22,6 @@ void wc() { // wc = win counter
     outFile.close();
 }
 
-
 // show the counter which returns an int to show the number
 int nwc() { // outputs the number from the file
     int wins = 0;
@@ -37,3 +35,8 @@ int nwc() { // outputs the number from the file
     }
     return wins;
 }
+
+
+
+
+
